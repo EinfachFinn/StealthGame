@@ -190,6 +190,17 @@
                 },
                 {
                     "name": "",
+                    "id": "8886a1a0-d476-4460-b023-af42d097fea6",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Melee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "31fec141-9d81-4116-9bcf-9520c22f50a3",
                     "path": "<Gamepad>/rightStickPress",
                     "interactions": "",
@@ -261,17 +272,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Aiming",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ddd8430f-bc3b-4a17-91d5-bbb5faa59efd",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
                     "action": "Aiming",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -526,6 +526,17 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Crouching",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ddd8430f-bc3b-4a17-91d5-bbb5faa59efd",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Aiming",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

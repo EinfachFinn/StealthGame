@@ -8,8 +8,11 @@ public class Guard_DefineStates : MonoBehaviour
 	//This Script turns on and off States and Scripts
 	public GuardAI AI;
 	
+	private float SaveViewDistanste;
+	
 	void Awake()
 	{
+		SaveViewDistanste = AI.MaxViewDistance;
 		AI = GetComponent<GuardAI>();
 	}
     // Update is called once per frame
@@ -31,7 +34,9 @@ public class Guard_DefineStates : MonoBehaviour
 			if(Timer > 10)
 			{
 				AI.State = 1;
+				AI.MaxViewDistance = SaveViewDistanste; 
 				Timer = 0;
+				AI.Light.range = AI.MaxViewDistance;
 			}
 		}else Timer = 0;
 	    

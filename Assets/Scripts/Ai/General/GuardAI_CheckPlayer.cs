@@ -26,6 +26,11 @@ public class GuardAI_CheckPlayer : MonoBehaviour
 		if (AI.DetectedPlayerHead && AI.DetectedPlayerHip || AI.DetectedPlayerHead && AI.DetectedPlayerTorso || AI.DetectedPlayerHip && AI.DetectedPlayerTorso)
 		{
 			DetectTimerBool = true;
+			if(AI.IsInRange < 2);
+			{
+				AI.CurrentDetectTimer = 0,5f;
+			}
+		
 		}
 		else
 		{
