@@ -4,17 +4,20 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Guard_Chase : MonoBehaviour
 {
+	[SerializeField] private float Timer;
 	public GuardAI AI;
 	public Guard_Attack GuardAttack;
+	public Guard_DefineStates GuardStates;
 	public NavMeshAgent NavMesh;
 	private float turnspeed = 100;
-	public float ChaseMaxViewDistance = 8;
+	//public float ChaseMaxViewDistance = 8;
 
 	void Awake()
 	{
 		AI = GetComponent<GuardAI>();
 		NavMesh = GetComponent<NavMeshAgent>();
 		GuardAttack = GetComponent<Guard_Attack>();
+		GuardStates = GetComponent<Guard_DefineStates>();
 		
 	}
 
@@ -36,10 +39,26 @@ public class Guard_Chase : MonoBehaviour
 		if(AI.DetectedPlayerHead || AI.DetectedPlayerHip || AI.DetectedPlayerTorso)
 		{
 			NavMesh.destination = AI.Player.transform.position;
-			AI.MaxViewDistance = ChaseMaxViewDistance;
+			//public float ChaseMaxViewDistance = 8;AI.MaxViewDistance = ChaseMaxViewDistance;
 			AI.Light.range = AI.MaxViewDistance;
+			AI.GuardAnimator.SetBool("Chase", true);
 			
 		}
+		else if (NavMesh.remainingDistance < 0.5f)
+		{
+			AI.GuardAnimator.SetBool("Chase", false);
+			AI.GuardAnimator.SetTrigger("LookAround");
+		
+				Timer += Time.deltaTime;
+			if(Timer > 11)
+				{
+					AI.GuardAnimator.SetBool("Chase", false);
+					GuardStates.ChaseEnded();
+				
+				}
+		}else Timer = 0;
+		
+		
 		
 	}
 }

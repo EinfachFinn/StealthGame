@@ -24,7 +24,7 @@ public class GuardAI : MonoBehaviour
 	public LayerMask viewMask;
 	public GameObject GuardCamObject;
 	public float DetectTime;
-	public Animator GuardBehaviour;
+	public Animator GuardAnimator;
 	[Space]
 	[Space]
 	[Space]
@@ -53,6 +53,9 @@ public class GuardAI : MonoBehaviour
 	public Transform PlayerDetectTorso;
 	public Transform PlayerDetectHip;
 	[Header("OtherStuff")]
+	public GameObject Eyes;
+	public GameObject EyeHolder;
+	
 	public Light Light;
 	public Guard_Chase GuardChase;
 	public Guard_Attack GuardAttack;
@@ -61,8 +64,9 @@ public class GuardAI : MonoBehaviour
 	
 	void Awake()
 	{
+		State = 1;
 		GuardCheck = GetComponent<GuardAI_CheckPlayer>();
-	
+		Eyes.transform.SetParent(EyeHolder.transform);
 	
 		GuardAttack = GetComponent<Guard_Attack>();
 		GuardPatrol = GetComponent<Guard_Patrol>();

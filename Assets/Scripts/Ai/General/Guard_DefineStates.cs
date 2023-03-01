@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Guard_DefineStates : MonoBehaviour
 {
-	private float Timer;
+
 	//This Script turns on and off States and Scripts
 	public GuardAI AI;
 	
@@ -26,22 +26,9 @@ public class Guard_DefineStates : MonoBehaviour
 		if(AI.IsInSight == true && AI.IsInRange == false)
 		{
 			AI.State = 2;
+			AI.GuardAnimator.SetBool("Chase", true);
 		}
-		//if Guard has Coin etc
-		if(AI.IsInSight == false && AI.IsInRange == false)
-		{
-			Timer += Time.deltaTime;
-			if(Timer > 10)
-			{
-				AI.State = 1;
-				AI.MaxViewDistance = SaveViewDistanste; 
-				Timer = 0;
-				AI.Light.range = AI.MaxViewDistance;
-			}
-		}else Timer = 0;
-	    
-		
-		
+
 		//Turn on and off scripts
 		if(AI.State == 0)
 		{
@@ -67,5 +54,13 @@ public class Guard_DefineStates : MonoBehaviour
 			
 		}
 		
-    }
+	}
+    
+	public void ChaseEnded()
+	{
+		AI.State = 1;
+		AI.MaxViewDistance = SaveViewDistanste; 
+		AI.Light.range = AI.MaxViewDistance;
+	}
+	
 }

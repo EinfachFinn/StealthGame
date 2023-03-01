@@ -6,9 +6,12 @@ public class GuardAI_CheckPlayer : MonoBehaviour
 {
 	
 	public GuardAI AI;
-	private bool DetectTimerBool;
-	void Enabled()
+	public bool DetectTimerBool;
+	private float SaveDetectTime;
+	
+	void Start()
 	{
+		SaveDetectTime = AI.DetectTime;
 		AI = GetComponent<GuardAI>();
 	}
 	
@@ -26,10 +29,6 @@ public class GuardAI_CheckPlayer : MonoBehaviour
 		if (AI.DetectedPlayerHead && AI.DetectedPlayerHip || AI.DetectedPlayerHead && AI.DetectedPlayerTorso || AI.DetectedPlayerHip && AI.DetectedPlayerTorso)
 		{
 			DetectTimerBool = true;
-			if(AI.IsInRange < 2);
-			{
-				AI.CurrentDetectTimer = 0,5f;
-			}
 		
 		}
 		else
@@ -104,7 +103,7 @@ public class GuardAI_CheckPlayer : MonoBehaviour
 		//Detect Timer
 		if (DetectTimerBool == true)
 		{
-			AI.Light.color =  Color.yellow;
+			AI.Light.color =  new Color(255f, 100f, 255f);
 			AI.CurrentDetectTimer -= Time.deltaTime;
 			if (AI.CurrentDetectTimer < 0)
 			{
@@ -119,6 +118,16 @@ public class GuardAI_CheckPlayer : MonoBehaviour
 		else 
 		{	AI.IsInSight = false;
 			AI.CurrentDetectTimer = AI.DetectTime;
+			if (AI.CurrentShootRange < 4) 
+			{
+				AI.DetectTime = 0.5f;
+			}
+			else
+			{
+				AI.DetectTime = SaveDetectTime;
+			}
+			
+			
 			AI.Light.color = Color.white;
 		}
 		
