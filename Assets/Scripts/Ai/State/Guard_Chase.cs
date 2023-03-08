@@ -10,6 +10,7 @@ public class Guard_Chase : MonoBehaviour
 	public Guard_DefineStates GuardStates;
 	public NavMeshAgent NavMesh;
 	private float turnspeed = 100;
+
 	//public float ChaseMaxViewDistance = 8;
 
 	void Awake()
@@ -34,6 +35,8 @@ public class Guard_Chase : MonoBehaviour
 	}
 	void Update()
 	{	
+		
+		
 		TurnToPlayer();
 
 		if(AI.DetectedPlayerHead || AI.DetectedPlayerHip || AI.DetectedPlayerTorso)

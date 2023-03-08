@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GuardAI : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class GuardAI : MonoBehaviour
 	[Header("Debug: Shoot Distance ")]
 	public float CurrentShootRange;
 	public bool IsInRange;
+	
+	public GameObject DebugGhost;
 	[Space]
 	[Space]
 	[Space]
@@ -78,7 +81,7 @@ public class GuardAI : MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
-	
+		DebugGhost.transform.position = GetComponent<NavMeshAgent>().destination;
 	
 	}
 

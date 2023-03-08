@@ -103,7 +103,7 @@ public class GuardAI_CheckPlayer : MonoBehaviour
 		//Detect Timer
 		if (DetectTimerBool == true)
 		{
-			AI.Light.color =  new Color(255f, 100f, 255f);
+			AI.Light.color =  new Color(0f, 0f, 255f);
 			AI.CurrentDetectTimer -= Time.deltaTime;
 			if (AI.CurrentDetectTimer < 0)
 			{

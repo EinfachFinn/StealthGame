@@ -498,6 +498,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9fd190d3-17ae-4577-86af-2b32b4a1c05a",
+                    "path": "<Keyboard>/alt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1c69fce5-dcf1-4b50-ae6b-d3372c606109",
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
