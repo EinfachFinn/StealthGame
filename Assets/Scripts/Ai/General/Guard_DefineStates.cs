@@ -20,34 +20,32 @@ public class Guard_DefineStates : MonoBehaviour
 	{
 		if(AI.IsInSight == true && AI.IsInRange == true)
 		{
-			AI.State = 0;
+			AI.GuardAttack.enabled = true;
+		}
+		else
+		{
+			AI.GuardAttack.enabled = false;
 		}
 		
-		if(AI.IsInSight == true && AI.IsInRange == false)
+		if(AI.IsInSight == true)
 		{
 			AI.State = 2;
 			AI.GuardAnimator.SetBool("Chase", true);
 		}
 
-		//Turn on and off scripts
-		if(AI.State == 0)
-		{
-			AI.GuardAttack.enabled = true;
-			AI.GuardPatrol.enabled = false;
-			AI.GuardChase.enabled = false;
-			
-		}
+		
+		
+	
+	
 		if(AI.State == 1)
 		{
 			AI.GuardAttack.enabled = false;
 			AI.GuardPatrol.enabled = true;
 			AI.GuardChase.enabled = false;
-			
-			
+			Debug.Log("IsInPatrolMode");
 		}
 		if(AI.State == 2)
 		{
-			AI.GuardAttack.enabled = false;
 			AI.GuardPatrol.enabled = false;
 			AI.GuardChase.enabled = true;
 			
@@ -61,6 +59,7 @@ public class Guard_DefineStates : MonoBehaviour
 		AI.State = 1;
 		AI.MaxViewDistance = SaveViewDistanste; 
 		AI.Light.range = AI.MaxViewDistance;
+		Debug.Log("ChaseEnded");
 	}
 	
 }

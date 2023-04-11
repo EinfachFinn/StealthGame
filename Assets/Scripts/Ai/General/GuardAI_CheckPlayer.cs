@@ -120,7 +120,14 @@ public class GuardAI_CheckPlayer : MonoBehaviour
 			AI.CurrentDetectTimer = AI.DetectTime;
 			if (AI.CurrentShootRange < 4) 
 			{
-				AI.DetectTime = 0.5f;
+					if (AI.CurrentShootRange < 2)
+					{
+						AI.DetectTime = 0.2f;
+					}
+					else
+					{
+						AI.DetectTime = 0.35f;
+					}
 			}
 			else
 			{

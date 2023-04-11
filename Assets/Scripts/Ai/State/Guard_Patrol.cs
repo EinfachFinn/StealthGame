@@ -39,7 +39,7 @@ public class Guard_Patrol : MonoBehaviour
 			waiting = true;
 			waitStartTime = Time.time;
 			
-			AI.GuardAnimator.SetTrigger("LookAround");
+			AI.GuardAnimator.SetBool("LookAround", true);
 			
 			StartCoroutine(WaitAtWaypoint());
 		}
@@ -54,7 +54,7 @@ public class Guard_Patrol : MonoBehaviour
 	IEnumerator WaitAtWaypoint()
 	{
 		yield return new WaitForSeconds(waitTime);
-
+		AI.GuardAnimator.SetBool("LookAround", false);
 		currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
 		SetDestination();
 	}

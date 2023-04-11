@@ -10,7 +10,7 @@ public class GuardAI : MonoBehaviour
 	[Range(0,2)]
 	public int State = 1;
 	[Space]
-	[SerializeField] private string State0 = "Attack";
+	[SerializeField] private string State0 = "Other";
 	[SerializeField] private string State1 = "Patrol";
 	[SerializeField] private string State2 = "Chase";
 	[Space]

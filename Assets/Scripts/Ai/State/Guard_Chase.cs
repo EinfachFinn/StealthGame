@@ -42,7 +42,7 @@ public class Guard_Chase : MonoBehaviour
 		if(AI.DetectedPlayerHead || AI.DetectedPlayerHip || AI.DetectedPlayerTorso)
 		{
 			NavMesh.destination = AI.Player.transform.position;
-			//public float ChaseMaxViewDistance = 8;AI.MaxViewDistance = ChaseMaxViewDistance;
+
 			AI.Light.range = AI.MaxViewDistance;
 			AI.GuardAnimator.SetBool("Chase", true);
 			
@@ -50,12 +50,14 @@ public class Guard_Chase : MonoBehaviour
 		else if (NavMesh.remainingDistance < 0.5f)
 		{
 			AI.GuardAnimator.SetBool("Chase", false);
-			AI.GuardAnimator.SetTrigger("LookAround");
+			AI.GuardAnimator.SetBool("LookAround", true);
+
 		
-				Timer += Time.deltaTime;
-			if(Timer > 11)
+			Timer += Time.deltaTime;
+			if(Timer > 10.3)
 				{
-					AI.GuardAnimator.SetBool("Chase", false);
+				AI.GuardAnimator.SetBool("Chase", false);
+				AI.GuardAnimator.SetBool("LookAround", false);
 					GuardStates.ChaseEnded();
 				
 				}

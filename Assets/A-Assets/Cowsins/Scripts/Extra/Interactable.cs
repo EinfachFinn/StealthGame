@@ -1,5 +1,5 @@
-/// <summary>
-/// This script belongs to cowsins™ as a part of the cowsins´ FPS Engine. All rights reserved. 
+ï»¿/// <summary>
+/// This script belongs to cowsinsï¿½ as a part of the cowsinsï¿½ FPS Engine. All rights reserved. 
 /// </summary>
 using System.Collections;
 using System.Collections.Generic;
@@ -18,8 +18,9 @@ using UnityEngine;
 /// </summary>
 public class Interactable : MonoBehaviour
 {
-    protected Transform player;
-
+	protected Transform player;
+	public CompassElement CPElement;
+	
     [HideInInspector]public bool interactable = false; 
 
     [Tooltip("Text that will be displayed on the Interaction UI")]
@@ -37,6 +38,8 @@ public class Interactable : MonoBehaviour
     /// </summary>
     public virtual void Interact()
     {
-        Debug.Log("Interacted with" + this.gameObject.name);
+	    Debug.Log("Interacted with" + this.gameObject.name);
+	    Destroy(this);
+	    CPElement.Remove();
     }
 }

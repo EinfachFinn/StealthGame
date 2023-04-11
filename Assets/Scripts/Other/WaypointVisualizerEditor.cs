@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/*
+using UnityEngine;
 using UnityEditor;
 [CustomEditor(typeof(WaypointVisualizer))]
 public class WaypointVisualizerEditor : Editor
@@ -41,3 +42,4 @@ public class WaypointVisualizerEditor : Editor
 		serializedObject.ApplyModifiedProperties();
 	}
 }
+*/
